@@ -1,0 +1,90 @@
+"use client";
+import Image from "next/image";
+import logo from "../../public/general-imgs/logo.png";
+import React, { useState } from "react";
+import MobileNavbar from "./MobileNavbar";
+import Link from "next/link";
+import { FaLocationDot, FaMoon } from "react-icons/fa6";
+import { MdOutlineDeliveryDining, MdRestaurantMenu } from "react-icons/md";
+import { HiOutlineSun } from "react-icons/hi";
+import { MdOutlineFeedback } from "react-icons/md";
+
+const LINKS = [
+	{
+		id: 1,
+		href: "/",
+		icon: <MdRestaurantMenu className="size-5" />,
+		label: "Menu",
+	},
+	{
+		id: 2,
+		href: "/delivery",
+		icon: <MdOutlineDeliveryDining className="size-5" />,
+		label: "Delivery",
+	},
+	{
+		id: 3,
+		href: "/feedback",
+		icon: <MdOutlineFeedback className="size-5" />,
+		label: "Feedback",
+	},
+];
+
+export default function DesktopNavbar() {
+	const [theme, setTheme] = useState("light");
+
+	const toggleTheme = () => {
+		setTheme("dark");
+	};
+	return (
+		<header className="border-b border-gray-600 bg-black/40 tracking-wider">
+			<nav className="h-[11vh] max-w-[1250px] mx-auto flex items-center justify-between px-4 xl:px-0">
+				<Link href="/" className="flex items-center cursor-pointer">
+					<Image
+						alt="logo"
+						src={logo}
+						quality="95"
+						priority={true}
+						className="animate-spin-3s w-[2.3rem] h-[2.3rem] mr-3"
+					/>
+					<span className="font-semibold">Eat Pizza</span>
+				</Link>
+
+				<div className="hidden md:flex md:gap-x-6 lg:gap-x-12 text-[17px] font-medium">
+					{LINKS.map((link) => (
+						<Link
+							key={link.id}
+							href={link.href}
+							className="flex items-center gap-x-[8px]"
+						>
+							{link.icon} {link.label}
+						</Link>
+					))}
+				</div>
+
+				<div className="flex items-center gap-x-6">
+					<div
+						onClick={toggleTheme}
+						className="cursor-pointer border p-[.4rem] md:p-[.5rem] rounded-md dark:border-slate-600 text-slate-800 dark:text-slate-300"
+					>
+						{theme === "light" ? (
+							<HiOutlineSun className="size-6" />
+						) : (
+							<FaMoon className="size-6" />
+						)}
+					</div>
+
+					<Link
+						href="/address"
+						className="hidden md:flex items-center bg-gradient-green bg-gradient-green-hover font-semibold text-white transition-all rounded-md py-[.5rem] px-3"
+					>
+						<FaLocationDot className="mr-2 animate-bounce" />
+						Enter your address
+					</Link>
+
+					<MobileNavbar />
+				</div>
+			</nav>
+		</header>
+	);
+}
