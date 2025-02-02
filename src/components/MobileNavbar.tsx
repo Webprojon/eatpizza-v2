@@ -54,7 +54,7 @@ export default function MobileNavbar() {
 			</div>
 
 			<div
-				className={`absolute left-0 top-24 w-full h-[calc(100vh-96px)] bg-slate-100 dark:bg-black/70 flex flex-col items-center gap-y-10
+				className={`absolute left-0 top-[5.7rem] w-full h-screen bg-slate-100 dark:bg-black/70 flex flex-col items-center gap-y-10
 					 z-10 font-medium text-[23px] transition-transform duration-300 p-5
 					 ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
 			>

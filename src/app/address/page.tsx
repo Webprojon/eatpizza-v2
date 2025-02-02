@@ -1,5 +1,81 @@
-import React from "react";
+"use client";
+import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { SubmitFormModalAddress } from "@/actions/address-modal-action";
+import { animFromBottomToTop } from "@/lib/motion-anim";
+import StaticMap from "./StaticMap";
 
 export default function Address() {
-	return <div className="max-w-[1250px] mx-auto">Address</div>;
+	const router = useRouter();
+
+	const handleInputClasses = (width: string) => {
+		return `${width} border border-gray-300 outline-green-500 py-2 px-3 rounded-sm tracking-wider text-gray-600
+		 placeholder:text-gray-600 dark:outline-none dark:bg-slate-800 dark:text-gray-300 dark:placeholder:text-gray-300`;
+	};
+
+	const handleSubmited = () => {
+		setTimeout(() => {
+			toast.success("Your address is saved 😊 !");
+		}, 1000);
+
+		setTimeout(() => {
+			router.push("/");
+		}, 1800);
+	};
+
+	return (
+		<motion.div
+			initial="initial"
+			animate="animate"
+			variants={animFromBottomToTop}
+			className="max-w-[1250px] mx-auto md:mt-4 bg-slate-100 md:p-7 rounded-sm dark:bg-black/40 backdrop-blur-sm"
+		>
+			<div className="md:flex justify-between gap-x-6 p-4 md:p-0">
+				<StaticMap />
+
+				<form
+					action={SubmitFormModalAddress}
+					className="flex flex-col gap-y-6 mt-4 md:mt-0"
+				>
+					<span className="leading-none font-semibold">Enter your address</span>
+					<input
+						type="text"
+						name="useraddress"
+						autoComplete="off"
+						placeholder="Address"
+						className={handleInputClasses(
+							"w-full dark:bg-transparent bg-transparent border border-gray-400 dark:border-gray-700",
+						)}
+					/>
+					<div className="flex gap-x-6">
+						<input
+							type="number"
+							name="userflat"
+							placeholder="Flat"
+							autoComplete="off"
+							className={handleInputClasses(
+								"w-[50%] dark:bg-transparent bg-transparent border border-gray-400 dark:border-gray-700",
+							)}
+						/>
+						<input
+							type="number"
+							name="userfloor"
+							autoComplete="off"
+							placeholder="Floor"
+							className={handleInputClasses(
+								"w-[50%] dark:bg-transparent bg-transparent border border-gray-400 dark:border-gray-700",
+							)}
+						/>
+					</div>
+					<button
+						onClick={handleSubmited}
+						className="self-end rounded-sm bg-gradient-green bg-gradient-green-hover text-white py-[.4rem] px-4 font-semibold tracking-wider"
+					>
+						Submit form
+					</button>
+				</form>
+			</div>
+		</motion.div>
+	);
 }
