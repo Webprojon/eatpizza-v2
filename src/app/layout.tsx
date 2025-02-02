@@ -1,14 +1,12 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
-//import GlobalContextProvider from "@/context/global-context";
-//import ThemeContextProvider from "@/context/theme-context";
-
-const inter = Inter({ subsets: ["latin"] });
-
 import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import DesktopNavbar from "@/components/DesktopNavbar";
+import ThemeContextProvider from "@/context/theme-context";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Eat Pizza",
@@ -45,18 +43,18 @@ export default function RootLayout({
 				<link rel="apple-touch-icon" href="icons/EatPizza-512.png" />
 			</head>
 			<body
-				className={`${inter.className}bg-gray-50 dark:bg-gray-900 dark:text-gray-300 select-none`}
+				className={`${inter.className}bg-gray-50 dark:bg-gray-900 dark:text-slate-300 text-slate-700 select-none`}
 			>
 				<div className="animate-spin-25s fixed top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#4d2d2d]"></div>
 				<div className="animate-spin-25s fixed top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#494579]"></div>
-				{/*<ThemeContextProvider>*/}
-				{/*<GlobalContextProvider>*/}
-				<DesktopNavbar />
-				{children}
-				<Footer />
-				<Toaster position="top-center" />
-				{/*</GlobalContextProvider>*/}
-				{/*</ThemeContextProvider>*/}
+				<ThemeContextProvider>
+					{/*<GlobalContextProvider>*/}
+					<DesktopNavbar />
+					{children}
+					<Footer />
+					<Toaster position="top-center" />
+					{/*</GlobalContextProvider>*/}
+				</ThemeContextProvider>
 			</body>
 		</html>
 	);

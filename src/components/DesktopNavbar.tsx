@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/general-imgs/logo.png";
-import React, { useState } from "react";
 import MobileNavbar from "./MobileNavbar";
 import Link from "next/link";
 import { FaLocationDot, FaMoon } from "react-icons/fa6";
 import { MdOutlineDeliveryDining, MdRestaurantMenu } from "react-icons/md";
 import { HiOutlineSun } from "react-icons/hi";
 import { MdOutlineFeedback } from "react-icons/md";
+import { useTheme } from "@/context/theme-context";
 
 const LINKS = [
 	{
@@ -31,13 +31,10 @@ const LINKS = [
 ];
 
 export default function DesktopNavbar() {
-	const [theme, setTheme] = useState("light");
+	const { theme, toggleTheme } = useTheme();
 
-	const toggleTheme = () => {
-		setTheme("dark");
-	};
 	return (
-		<header className="border-b border-gray-600 bg-black/40 tracking-wider">
+		<header className="border-b border-gray-300 dark:border-gray-600 bg-slate-100 dark:bg-black/40 tracking-wider">
 			<nav className="h-[11vh] max-w-[1250px] mx-auto flex items-center justify-between px-4 xl:px-0">
 				<Link href="/" className="flex items-center cursor-pointer">
 					<Image
@@ -65,12 +62,12 @@ export default function DesktopNavbar() {
 				<div className="flex items-center gap-x-6">
 					<div
 						onClick={toggleTheme}
-						className="cursor-pointer border p-[.4rem] md:p-[.5rem] rounded-md dark:border-slate-600 text-slate-800 dark:text-slate-300"
+						className="cursor-pointer border p-[.4rem] md:p-[.5rem] rounded-md border-gray-300 dark:border-slate-600 text-slate-700 dark:text-slate-300"
 					>
 						{theme === "light" ? (
-							<HiOutlineSun className="size-6" />
-						) : (
 							<FaMoon className="size-6" />
+						) : (
+							<HiOutlineSun className="size-6" />
 						)}
 					</div>
 

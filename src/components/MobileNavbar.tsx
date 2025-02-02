@@ -39,22 +39,22 @@ export default function MobileNavbar() {
 				className="flex flex-col gap-[4.5px] cursor-pointer"
 			>
 				<div
-					className={`w-6 h-1 bg-gray-300 rounded-sm 
+					className={`w-6 h-1 bg-slate-700 dark:bg-slate-300 rounded-sm 
             ${isOpen && "rotate-45"} origin-left ease-in-out duration-500`}
 				/>
 				<div
-					className={`w-6 h-1 bg-gray-300 rounded-sm 
+					className={`w-6 h-1 bg-slate-700 dark:bg-slate-300 rounded-sm 
             ${isOpen && "opacity-0"}
           `}
 				/>
 				<div
-					className={`w-6 h-1 bg-gray-300 rounded-sm 
+					className={`w-6 h-1 bg-slate-700 dark:bg-slate-300 rounded-sm 
             ${isOpen && "-rotate-45"} origin-left ease-in-out duration-500`}
 				/>
 			</div>
 
 			<div
-				className={`absolute left-0 top-24 w-full h-[calc(100vh-96px)] bg-black/70 flex flex-col items-center gap-y-10
+				className={`absolute left-0 top-24 w-full h-[calc(100vh-96px)] bg-slate-100 dark:bg-black/70 flex flex-col items-center gap-y-10
 					 z-10 font-medium text-[23px] transition-transform duration-300 p-5
 					 ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
 			>
