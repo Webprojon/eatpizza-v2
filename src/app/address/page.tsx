@@ -10,7 +10,7 @@ export default function Address() {
 	const router = useRouter();
 
 	const handleInputClasses = (width: string) => {
-		return `${width} border border-gray-300 outline-green-500 py-2 px-3 rounded-sm tracking-wider text-gray-600
+		return `${width} border border-gray-300 outline-green-500 p-3 rounded-md tracking-wider text-gray-600
 		 placeholder:text-gray-600 dark:outline-none dark:bg-slate-800 dark:text-gray-300 dark:placeholder:text-gray-300`;
 	};
 
@@ -29,7 +29,7 @@ export default function Address() {
 			initial="initial"
 			animate="animate"
 			variants={animFromBottomToTop}
-			className="max-w-[1250px] mx-auto md:mt-4 bg-slate-100 md:p-7 rounded-sm dark:bg-black/40 backdrop-blur-sm"
+			className="max-w-[1250px] mx-auto h-[calc(100vh-11vh)] bg-slate-100 md:p-7 lg:rounded-md dark:bg-black/40"
 		>
 			<div className="md:flex justify-between gap-x-6 p-4 md:p-0">
 				<StaticMap />
@@ -70,9 +70,9 @@ export default function Address() {
 					</div>
 					<button
 						onClick={handleSubmited}
-						className="self-end rounded-sm bg-gradient-green bg-gradient-green-hover text-white py-[.4rem] px-4 font-semibold tracking-wider"
+						className="rounded-md bg-gradient-green bg-gradient-green-hover text-white p-3 font-semibold tracking-wider"
 					>
-						Submit form
+						Submit Address
 					</button>
 				</form>
 			</div>
