@@ -35,7 +35,7 @@ export default function DesktopNavbar() {
 
 	return (
 		<header className="border-b border-gray-300 dark:border-gray-600 bg-slate-100 dark:bg-black/40 tracking-wider">
-			<nav className="h-[11vh] max-w-[1250px] mx-auto flex items-center justify-between px-4 xl:px-0">
+			<nav className="h-[11vh] max-w-[1250px] mx-auto flex items-center justify-between px-3 xl:px-0">
 				<Link href="/" className="flex items-center cursor-pointer">
 					<Image
 						alt="logo"

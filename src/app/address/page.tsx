@@ -31,7 +31,7 @@ export default function Address() {
 			variants={animFromBottomToTop}
 			className="max-w-[1250px] mx-auto h-[calc(100vh-11vh)] bg-slate-100 md:p-7 lg:rounded-md dark:bg-black/40"
 		>
-			<div className="md:flex justify-between gap-x-6 p-4 md:p-0">
+			<div className="md:flex justify-between gap-x-6 p-3 md:p-0">
 				<StaticMap />
 
 				<form

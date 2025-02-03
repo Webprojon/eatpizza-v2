@@ -24,7 +24,7 @@ export default function Feedback() {
 			initial="initial"
 			animate="animate"
 			variants={animFromBottomToTop}
-			className="flex flex-col items-center md:justify-center max-w-[1250px] h-[calc(100vh-11vh)] mx-auto lg:rounded-md bg-slate-100 dark:bg-black/40 px-4"
+			className="flex flex-col items-center md:justify-center max-w-[1250px] h-[calc(100vh-11vh)] mx-auto lg:rounded-md bg-slate-100 dark:bg-black/40 px-3"
 		>
 			<h2 className="font-semibold my-6 text-2xl tracking-wider leading-none">
 				Feedback Us
