@@ -23,7 +23,7 @@ export const animFromTopToBottom = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5,
+			duration: 0.3,
 		},
 	},
 };
@@ -37,7 +37,7 @@ export const animFromBottomToTop = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5,
+			duration: 0.3,
 		},
 	},
 };

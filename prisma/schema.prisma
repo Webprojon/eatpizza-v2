@@ -16,6 +16,20 @@ model Products {
   itemPrice       Int
   updateAt        DateTime @updatedAt
   createAt        DateTime @default(now())
+  baskets         Basket[]
+}
+
+model Basket {
+  id              String   @id @default(cuid())
+  itemCategory    String
+  itemImg         String
+  itemName        String
+  itemDescription String?
+  itemPrice       Int
+  productId       String
+  product         Products @relation(fields: [productId], references: [id])
+  updateAt        DateTime @updatedAt
+  createAt        DateTime @default(now())
 }
 
 model Address {

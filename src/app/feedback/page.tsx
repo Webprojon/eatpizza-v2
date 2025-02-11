@@ -2,9 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { animFromBottomToTop } from "@/lib/motion-anim";
-import { SubmitFormFeedback } from "@/actions/feedback-action";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { submitFeedback } from "@/actions/actions";
 
 export default function Feedback() {
 	const router = useRouter();
@@ -30,7 +30,7 @@ export default function Feedback() {
 				Feedback Us
 			</h2>
 			<form
-				action={SubmitFormFeedback}
+				action={submitFeedback}
 				className="flex flex-col gap-y-4 w-full md:w-[40rem]"
 			>
 				<input

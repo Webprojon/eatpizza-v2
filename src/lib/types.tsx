@@ -1,13 +1,17 @@
-import { StaticImageData } from "next/image";
+//import { StaticImageData } from "next/image";
 
-export interface ItemsType {
-	itemId: number;
+export type ItemsType = {
+	id: string;
+	itemId?: string;
 	itemCategory: string;
-	itemImg: StaticImageData;
+	//itemImg: StaticImageData;
+	itemImg: string;
 	itemName: string;
-	itemDescription?: string;
-	itemPrice?: number;
-}
+	itemDescription: string | null;
+	itemPrice: number;
+	updateAt: Date;
+	createAt: Date;
+};
 
 export type SelectedItemType = {
 	[key: number]: number;

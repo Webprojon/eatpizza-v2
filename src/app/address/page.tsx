@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { SubmitFormModalAddress } from "@/actions/address-modal-action";
 import { animFromBottomToTop } from "@/lib/motion-anim";
 import StaticMap from "./StaticMap";
+import { submitAddress } from "@/actions/actions";
 
 export default function Address() {
 	const router = useRouter();
@@ -35,7 +35,7 @@ export default function Address() {
 				<StaticMap />
 
 				<form
-					action={SubmitFormModalAddress}
+					action={submitAddress}
 					className="flex flex-col gap-y-6 mt-4 md:mt-0"
 				>
 					<span className="leading-none font-semibold">Enter your address</span>
