@@ -24,7 +24,7 @@ export default function ProductCards({ products }: { products: Products[] }) {
 
 			return selectValue in categories
 				? products.filter(
-						(product: any) => product.itemCategory === categories[selectValue],
+						(product) => product.itemCategory === categories[selectValue],
 				  )
 				: products;
 		};
