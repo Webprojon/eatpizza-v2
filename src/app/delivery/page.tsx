@@ -17,7 +17,7 @@ export default async function Delivery() {
 				<div className="w-full md:w-[55%] lg:w-[45%] h-[25vh] bg-slate-100 mx-auto flex flex-col gap-y-6 justify-center items-center sm:rounded-md dark:bg-black/40 md:mt-14">
 					<h1 className="text-[20px] leading-none">No item selected yet 😏</h1>
 					<Link
-						href="/"
+						href="/menu"
 						className="flex place-items-center bg-gradient-green bg-gradient-green-hover text-white transition-all rounded-md p-3"
 					>
 						Go to menu
@@ -27,7 +27,7 @@ export default async function Delivery() {
 				<div>
 					{/* Header */}
 					<div className="flex justify-between items-center w-full h-10 py-8 px-3 bg-slate-100 dark:bg-black/40">
-						<Link href="/" className="flex items-center cursor-pointer">
+						<Link href="/menu" className="flex items-center cursor-pointer">
 							<FaChevronLeft className="size-6" />
 							<span className="pl-2 font-semibold">Back</span>
 						</Link>
@@ -39,7 +39,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Basket */}
-					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 h-[36vh] overflow-y-scroll no-scrollbar">
+					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 md:h-[36vh] overflow-y-scroll no-scrollbar">
 						{basketItems &&
 							basketItems.map((item, index: number) => (
 								<div key={index} className="mb-8">
@@ -81,7 +81,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Contact information */}
-					<div className="bg-slate-100 dark:bg-black/40 px-3 py-7 h-[38vh] overflow-y-scroll no-scrollbar">
+					<div className="bg-slate-100 dark:bg-black/40 px-3 py-7">
 						<h2 className="mb-2 font-bold text-gray-600 dark:text-gray-300 tracking-wider text-lg">
 							Contact information
 						</h2>

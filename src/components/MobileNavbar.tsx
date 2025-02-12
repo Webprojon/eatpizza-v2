@@ -1,33 +1,8 @@
 "use client";
+import { LINKS } from "@/lib/data";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
-import {
-	MdOutlineDeliveryDining,
-	MdOutlineFeedback,
-	MdRestaurantMenu,
-} from "react-icons/md";
-
-const LINKS = [
-	{
-		id: 1,
-		href: "/",
-		icon: <MdRestaurantMenu className="size-6" />,
-		label: "Menu",
-	},
-	{
-		id: 2,
-		href: "/delivery",
-		icon: <MdOutlineDeliveryDining className="size-6" />,
-		label: "Delivery",
-	},
-	{
-		id: 3,
-		href: "/feedback",
-		icon: <MdOutlineFeedback className="size-6" />,
-		label: "Feedback",
-	},
-];
 
 export default function MobileNavbar() {
 	const [isOpen, setIsOpen] = useState(false);

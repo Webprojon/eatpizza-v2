@@ -4,31 +4,9 @@ import logo from "../../public/general-imgs/logo.png";
 import MobileNavbar from "./MobileNavbar";
 import Link from "next/link";
 import { FaLocationDot, FaMoon } from "react-icons/fa6";
-import { MdOutlineDeliveryDining, MdRestaurantMenu } from "react-icons/md";
 import { HiOutlineSun } from "react-icons/hi";
-import { MdOutlineFeedback } from "react-icons/md";
 import { useTheme } from "@/context/theme-context";
-
-const LINKS = [
-	{
-		id: 1,
-		href: "/",
-		icon: <MdRestaurantMenu className="size-5" />,
-		label: "Menu",
-	},
-	{
-		id: 2,
-		href: "/delivery",
-		icon: <MdOutlineDeliveryDining className="size-5" />,
-		label: "Delivery",
-	},
-	{
-		id: 3,
-		href: "/feedback",
-		icon: <MdOutlineFeedback className="size-5" />,
-		label: "Feedback",
-	},
-];
+import { LINKS } from "@/lib/data";
 
 export default function DesktopNavbar() {
 	const { theme, toggleTheme } = useTheme();
