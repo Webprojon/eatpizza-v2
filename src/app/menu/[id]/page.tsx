@@ -4,14 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
 
-type ProductProps = {
-	params: { id: string };
-};
-
-export default async function Product({ params }: ProductProps) {
+export default async function Product({
+	params,
+}: {
+	params: Promise<{ id: string }>;
+}) {
+	const id = (await params).id;
 	const product = await prisma.products.findUnique({
 		where: {
-			id: params.id,
+			id: id,
 		},
 	});
 
