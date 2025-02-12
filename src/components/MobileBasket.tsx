@@ -1,15 +1,15 @@
 "use client";
-import { useGlobalContext } from "@/context/global-context";
-import { useRouter } from "next/navigation";
-import { FaCartShopping } from "react-icons/fa6";
+//import { useGlobalContext } from "@/context/global-context";
+//import { useRouter } from "next/navigation";
+//import { FaCartShopping } from "react-icons/fa6";
 
 export default function MobileBasket() {
-	const { choosenPizza } = useGlobalContext();
-	const router = useRouter();
+	//const { choosenPizza } = useGlobalContext();
+	//const router = useRouter();
 
 	return (
 		<div className="hidden">
-			{choosenPizza.length === 0 ? (
+			{/*{choosenPizza.length === 0 ? (
 				""
 			) : (
 				<div
@@ -21,7 +21,7 @@ export default function MobileBasket() {
 						{choosenPizza && choosenPizza[0].itemPrice} zł
 					</span>
 				</div>
-			)}
+			)}*/}
 		</div>
 	);
 }

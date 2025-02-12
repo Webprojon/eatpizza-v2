@@ -4,7 +4,7 @@ import Image from "next/image";
 import animpizza from "../../public/general-imgs/animpizza.png";
 import prisma from "@/lib/db";
 import Counter from "./Counter";
-import { submitPromocode } from "@/actions/actions";
+import { submitPromocode, totalPrice } from "@/actions/actions";
 import DeleteItem from "./Basket-Components/DeleteItem";
 import ClearItems from "./Basket-Components/ClearItems";
 import Link from "next/link";
@@ -43,7 +43,7 @@ export default async function DesktopBasket() {
 				</div>
 			) : (
 				<>
-					<div className="h-[29vh] overflow-y-scroll no-scrollbar border-b border-gray-300 dark:border-gray-700 px-3">
+					<div className="h-[25vh] overflow-y-scroll no-scrollbar border-b border-gray-300 dark:border-gray-700 px-3">
 						{basketItems.map((item, index) => (
 							<div key={index} className="mb-4">
 								<div className="mb-3 last:mb-1 relative flex items-center">
@@ -76,7 +76,7 @@ export default async function DesktopBasket() {
 								<div className="flex items-end justify-between w-full">
 									<Counter index={index} />
 									<span className="font-semibold text-xs tracking-wider text-gray-700 dark:text-gray-300">
-										{item.itemPrice}.99 zł
+										{item.itemPrice} zł
 									</span>
 								</div>
 							</div>
@@ -86,7 +86,7 @@ export default async function DesktopBasket() {
 					<div className="flex flex-col gap-y-4 tracking-wider font-semibold mt-4 px-3">
 						<div className="flex items-center justify-between text-[18px]">
 							<span>Total:</span>
-							<span>30 zł</span>
+							<span>{totalPrice()} zł</span>
 						</div>
 
 						<form

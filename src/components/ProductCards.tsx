@@ -119,7 +119,7 @@ export default function ProductCards({ products }: { products: Products[] }) {
 								<p className="tracking-wide w-[14rem] py-1 text-gray-600 dark:text-gray-400 line-clamp-2">
 									{product.itemDescription}
 								</p>
-								<AddToCart product={product} />
+								<AddToCart product={product} index={index} />
 							</div>
 						</div>
 					</motion.div>

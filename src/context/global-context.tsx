@@ -5,24 +5,14 @@ type GlobalContextProviderProps = {
 	children: React.ReactNode;
 };
 
-type SelectedItemsType = {
-	itemCategory: string;
-	itemDesc: string;
-	itemId: number;
-	itemImg: string;
-	itemName: string;
-	itemPrice: number;
-	itemSize: number;
-};
-
 type GlobalDataType = {
-	choosenPizza: SelectedItemsType[];
-	setChoosenPizza: React.Dispatch<React.SetStateAction<SelectedItemsType[]>>;
+	selectedItemPrice: number;
+	setSelectedItemPrice: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const defaultGlobalContextValue: GlobalDataType = {
-	choosenPizza: [],
-	setChoosenPizza: () => {},
+	selectedItemPrice: 0,
+	setSelectedItemPrice: () => {},
 };
 
 const GlobalContext = createContext<GlobalDataType>(defaultGlobalContextValue);
@@ -30,12 +20,13 @@ const GlobalContext = createContext<GlobalDataType>(defaultGlobalContextValue);
 export default function GlobalContextProvider({
 	children,
 }: GlobalContextProviderProps) {
-	const [choosenPizza, setChoosenPizza] = useState<SelectedItemsType[]>([]);
+	const [selectedItemPrice, setSelectedItemPrice] = useState<number>(0);
 
 	const contextValue: GlobalDataType = {
-		choosenPizza,
-		setChoosenPizza,
+		selectedItemPrice,
+		setSelectedItemPrice,
 	};
+
 	return (
 		<GlobalContext.Provider value={contextValue}>
 			{children}

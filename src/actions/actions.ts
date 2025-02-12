@@ -3,7 +3,7 @@ import prisma from "@/lib/db";
 import { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
-export async function addItem(productId: string) {
+export async function addItem(productId: string, productPrice: number) {
 	try {
 		const product = await prisma.products.findUnique({
 			where: {
@@ -20,7 +20,7 @@ export async function addItem(productId: string) {
 				productId: product.id,
 				itemImg: product.itemImg,
 				itemName: product.itemName,
-				itemPrice: product.itemPrice,
+				itemPrice: productPrice || product.itemPrice,
 				itemCategory: product.itemCategory,
 				itemDescription: product.itemDescription,
 			},
@@ -33,6 +33,23 @@ export async function addItem(productId: string) {
 		revalidatePath("/");
 	} catch (error) {
 		console.log(error);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+
+export async function totalPrice() {
+	try {
+		const total = await prisma.basket.aggregate({
+			_sum: {
+				itemPrice: true,
+			},
+		});
+
+		return total._sum.itemPrice || 0;
+	} catch (err) {
+		console.error("Error calculating total price:", err);
+		throw new Error("Unable to calculate total price");
 	}
 }
 
