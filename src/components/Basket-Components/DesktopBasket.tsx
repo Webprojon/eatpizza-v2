@@ -1,13 +1,13 @@
-import basket from "../../public/general-imgs/basket.png";
+import basket from "../../../public/general-imgs/basket.png";
 import { FaChevronRight } from "react-icons/fa6";
 import Image from "next/image";
-import animpizza from "../../public/general-imgs/animpizza.png";
+import animpizza from "../../../public/general-imgs/animpizza.png";
 import prisma from "@/lib/db";
-import Counter from "./Counter";
 import { submitPromocode, totalPrice } from "@/actions/actions";
-import DeleteItem from "./Basket-Components/DeleteItem";
-import ClearItems from "./Basket-Components/ClearItems";
 import Link from "next/link";
+import ClearItems from "./ClearItems";
+import DeleteItem from "./DeleteItem";
+import Counter from "./Counter";
 
 export default async function DesktopBasket() {
 	const basketItems = await prisma.basket.findMany();
@@ -46,7 +46,7 @@ export default async function DesktopBasket() {
 					<div className="h-[25vh] overflow-y-scroll no-scrollbar border-b border-gray-300 dark:border-gray-700 px-3">
 						{basketItems.map((item, index) => (
 							<div key={index} className="mb-4">
-								<div className="mb-3 last:mb-1 relative flex items-center">
+								<div className="mb-3 last:mb-1 relative flex justify-between">
 									<Image
 										width={200}
 										height={200}

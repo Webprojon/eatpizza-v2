@@ -1,12 +1,12 @@
 import { FaChevronLeft } from "react-icons/fa6";
 import Image from "next/image";
-import { CgClose } from "react-icons/cg";
 import Input from "@/components/Input";
-import Counter from "@/components/Counter";
+import Counter from "@/components/Basket-Components/Counter";
 import Link from "next/link";
 import prisma from "@/lib/db";
 import ClearItems from "@/components/Basket-Components/ClearItems";
 import { totalPrice } from "@/actions/actions";
+import DeleteItem from "@/components/Basket-Components/DeleteItem";
 
 export default async function Delivery() {
 	const basketItems = await prisma.basket.findMany();
@@ -51,8 +51,8 @@ export default async function Delivery() {
 											alt={item.itemName}
 											className="w-[8rem] sm:w-[10rem]"
 										/>
-										<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[25rem]">
-											<div className="flex justify-between items-center gap-x-6">
+										<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[30rem]">
+											<div className="flex justify-between gap-x-6">
 												<div>
 													<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-300">
 														{item.itemName}
@@ -61,7 +61,7 @@ export default async function Delivery() {
 														{item.itemDescription}
 													</p>
 												</div>
-												<CgClose className="cursor-pointer size-6" />
+												<DeleteItem itemId={item.id} />
 											</div>
 
 											<div className="flex justify-between gap-x-10">

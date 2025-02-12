@@ -16,10 +16,7 @@ export default function DeleteItem({ itemId }: { itemId: string }) {
 
 	return (
 		<form onSubmit={handleDelete}>
-			<button
-				type="submit"
-				className="absolute top-0 right-0 cursor-pointer size-5"
-			>
+			<button>
 				<CgClose />
 			</button>
 		</form>

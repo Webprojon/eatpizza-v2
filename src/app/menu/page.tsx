@@ -2,8 +2,8 @@ import prisma from "@/lib/db";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
 import ProductCards from "@/components/ProductCards";
-import DesktopBasket from "@/components/DesktopBasket";
-import MobileBasket from "@/components/MobileBasket";
+import MobileBasket from "@/components/Basket-Components/MobileBasket";
+import DesktopBasket from "@/components/Basket-Components/DesktopBasket";
 
 export default async function Products() {
 	const products = await prisma.products.findMany();
