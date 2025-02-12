@@ -26,7 +26,7 @@ export default async function Delivery() {
 			) : (
 				<div>
 					{/* Header */}
-					<div className="flex justify-between items-center w-full h-10 py-8 px-4 bg-slate-100 dark:bg-black/40">
+					<div className="flex justify-between items-center w-full h-10 py-8 px-3 bg-slate-100 dark:bg-black/40">
 						<Link href="/" className="flex items-center cursor-pointer">
 							<FaChevronLeft className="size-6" />
 							<span className="pl-2 font-semibold">Back</span>
@@ -39,7 +39,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Basket */}
-					<div className="w-full px-4 py-10 bg-slate-100 dark:bg-black/40 h-[36vh] overflow-y-scroll no-scrollbar">
+					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 h-[36vh] overflow-y-scroll no-scrollbar">
 						{basketItems &&
 							basketItems.map((item, index: number) => (
 								<div key={index} className="mb-8">
@@ -49,7 +49,7 @@ export default async function Delivery() {
 											height={200}
 											src={item.itemImg}
 											alt={item.itemName}
-											className="w-[10rem]"
+											className="w-[8rem] sm:w-[10rem]"
 										/>
 										<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[25rem]">
 											<div className="flex justify-between items-center gap-x-6">
@@ -81,7 +81,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Contact information */}
-					<div className="bg-slate-100 dark:bg-black/40 px-4 py-7 h-[38vh] overflow-y-scroll no-scrollbar">
+					<div className="bg-slate-100 dark:bg-black/40 px-3 py-7 h-[38vh] overflow-y-scroll no-scrollbar">
 						<h2 className="mb-2 font-bold text-gray-600 dark:text-gray-300 tracking-wider text-lg">
 							Contact information
 						</h2>

@@ -101,7 +101,7 @@ export default async function DesktopBasket() {
 								placeholder="Enter promocode"
 								className="bg-transparent focus:bg-gray-50 font-medium outline-none px-4 dark:text-gray-300 dark:placeholder:text-gray-300 dark:bg-transparent"
 							/>
-							<button className="bg-gradient-green bg-gradient-green-hover flex justify-center items-center rounded-r-md w-8 h-[2.6rem] cursor-pointer">
+							<button className="bg-gradient-green bg-gradient-green-hover flex justify-center items-center rounded-r-md h-[2.6rem] cursor-pointer">
 								<FaChevronRight className="text-white" />
 							</button>
 						</form>
