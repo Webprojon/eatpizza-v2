@@ -6,19 +6,15 @@ import Counter from "@/components/Counter";
 import Link from "next/link";
 import prisma from "@/lib/db";
 import ClearItems from "@/components/Basket-Components/ClearItems";
+import { totalPrice } from "@/actions/actions";
 
 export default async function Delivery() {
 	const basketItems = await prisma.basket.findMany();
 
 	return (
-		<div
-			//initial="initial"
-			//animate="animate"
-			//variants={animFromBottomToTop}
-			className="h-[calc(100vh-11vh)] max-w-[1250px] mx-auto font-semibold tracking-wider rounded-md"
-		>
+		<div className="h-[calc(100vh-11vh)] max-w-[1250px] mx-auto font-semibold tracking-wider rounded-md">
 			{basketItems.length === 0 ? (
-				<div className="w-full md:w-[55%] lg:w-[45%] md:h-[25vh] bg-slate-100 mx-auto flex flex-col gap-y-6 justify-center items-center sm:rounded-md dark:bg-black/40">
+				<div className="w-full md:w-[55%] lg:w-[45%] h-[25vh] bg-slate-100 mx-auto flex flex-col gap-y-6 justify-center items-center sm:rounded-md dark:bg-black/40 md:mt-14">
 					<h1 className="text-[20px] leading-none">No item selected yet 😏</h1>
 					<Link
 						href="/"
@@ -79,14 +75,9 @@ export default async function Delivery() {
 								</div>
 							))}
 
-						<div>
-							<span className="text-2xl pr-2 font-bold text-gray-700 dark:text-gray-300">
-								Total:
-							</span>
-							<span className="text-2xl font-bold text-gray-700 dark:text-gray-300">
-								30 zł
-							</span>
-						</div>
+						<span className="text-2xl pr-2 font-bold text-gray-700 dark:text-gray-300">
+							Total: {totalPrice()} zł
+						</span>
 					</div>
 
 					{/* Contact information */}

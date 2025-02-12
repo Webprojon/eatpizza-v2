@@ -8,7 +8,6 @@ import { MdOutlineDeliveryDining, MdRestaurantMenu } from "react-icons/md";
 import { HiOutlineSun } from "react-icons/hi";
 import { MdOutlineFeedback } from "react-icons/md";
 import { useTheme } from "@/context/theme-context";
-import { useEffect, useState } from "react";
 
 const LINKS = [
 	{
@@ -33,33 +32,9 @@ const LINKS = [
 
 export default function DesktopNavbar() {
 	const { theme, toggleTheme } = useTheme();
-	const [isScrolled, setIsScrolled] = useState(false);
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll);
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
-
-	const handleScroll = () => {
-		if (window.scrollY > 20) {
-			setIsScrolled(true);
-		} else {
-			setIsScrolled(false);
-		}
-	};
 
 	return (
-		<header
-			className={`sticky top-0 z-50 border-b border-gray-300 dark:border-gray-600 tracking-wider
-		${
-			isScrolled
-				? "bg-slate-200 dark:bg-slate-900"
-				: "bg-slate-100 dark:bg-black/40"
-		}
-		`}
-		>
+		<header className="bg-slate-100 dark:bg-slate-900 md:bg-transparent sticky top-0 z-50 border-b border-gray-300 dark:border-gray-600 tracking-wider">
 			<nav className="h-[11vh] max-w-[1250px] mx-auto flex items-center justify-between px-3 xl:px-0">
 				<Link href="/" className="flex items-center cursor-pointer">
 					<Image

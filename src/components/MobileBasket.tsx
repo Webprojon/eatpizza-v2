@@ -12,10 +12,10 @@ export default async function MobileBasket() {
 			) : (
 				<Link
 					href="/delivery"
-					className="fixed bottom-6 right-4 z-10 bg-red-600 dark:bg-red-900 py-[.9rem] px-4 rounded-full"
+					className="fixed bottom-6 right-4 z-10 bg-red-600 dark:bg-red-900 p-4 rounded-md"
 				>
-					<span className="flex items-center justify-center font-semibold tracking-wider text-white text-md">
-						<FaCartShopping className="mr-2" />
+					<span className="flex items-center font-semibold tracking-wider text-white text-[18px]">
+						<FaCartShopping className="mr-3 size-5" />
 						{basketItems && basketItems[0].itemPrice} zł
 					</span>
 				</Link>

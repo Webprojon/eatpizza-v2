@@ -10,7 +10,7 @@ export default async function Products() {
 
 	return (
 		<Suspense fallback={<Loading />}>
-			<section className="max-w-[1250px] mx-auto my-4 flex flex-row justify-between">
+			<section className="max-w-[1250px] mx-auto my-4 flex flex-row justify-center lg:justify-between">
 				<MobileBasket />
 				<div className="px-2 sm:px-0 sm:mt-0">
 					<ProductCards products={products} />

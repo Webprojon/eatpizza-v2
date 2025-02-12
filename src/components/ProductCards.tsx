@@ -44,13 +44,13 @@ export default function ProductCards({ products }: { products: Products[] }) {
 	);
 
 	return (
-		<div className="">
-			<form className=" w-[380px] md:w-[600px] lg:w-[899px] flex flex-col justify-between sm:flex-row gap-x-6 gap-y-4 items-start mb-4">
+		<div>
+			<form className="w-[380px] md:w-[600px] lg:w-[899px] flex flex-col justify-between sm:flex-row gap-x-6 gap-y-4 items-start mb-4">
 				<select
 					name="categories"
 					value={selectValue}
 					onChange={handleSelectValue}
-					className="appearance-none bg-slate-100 rounded-md py-[.5rem] px-4 tracking-wider
+					className="appearance-none bg-slate-100 rounded-md py-[.7rem] px-4 tracking-wider
 				dark:bg-black/40 text-gray-600 dark:text-gray-300 cursor-pointer outline-none"
 				>
 					<option value="all">All products</option>
