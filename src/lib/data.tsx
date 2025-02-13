@@ -7,7 +7,7 @@ import {
 export const LINKS = [
 	{
 		id: 1,
-		href: "/menu",
+		href: "/",
 		icon: <MdRestaurantMenu className="size-6" />,
 		label: "Menu",
 	},

@@ -62,7 +62,7 @@ export default function ProductCards({ products }: { products: Products[] }) {
 
 				<div
 					className="flex items-center gap-[.6rem] text-gray-600 dark:text-gray-300 bg-slate-100 rounded-md dark:bg-black/40 
-					py-[.7rem] sm:py-[.5rem] px-2"
+					py-[.7rem] sm:py-[.5rem] px-2 w-full md:w-min"
 				>
 					<IoSearchOutline className="size-5" />
 					<input

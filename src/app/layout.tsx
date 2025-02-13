@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
 import DesktopNavbar from "@/components/DesktopNavbar";
 import ThemeContextProvider from "@/context/theme-context";
 
@@ -51,7 +50,7 @@ export default function RootLayout({
 					{/*<GlobalContextProvider>*/}
 					<DesktopNavbar />
 					{children}
-					<Footer />
+					{/*<Footer />*/}
 					<Toaster position="top-center" />
 					{/*</GlobalContextProvider>*/}
 				</ThemeContextProvider>

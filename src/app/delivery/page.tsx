@@ -12,8 +12,8 @@ export default async function Delivery() {
 	const basketItems = await prisma.basket.findMany();
 
 	return (
-		<div className="h-[calc(100vh-11vh)] max-w-[1250px] mx-auto font-semibold tracking-wider rounded-md">
-			{basketItems.length === 0 ? (
+		<div className="h-screen md:h-[calc(100vh-11vh)] bg-slate-100 dark:bg-black/40 max-w-[1250px] mx-auto font-semibold tracking-wider rounded-md">
+			{basketItems && basketItems.length === 0 ? (
 				<div className="w-full md:w-[55%] lg:w-[45%] h-[25vh] bg-slate-100 mx-auto flex flex-col gap-y-6 justify-center items-center sm:rounded-md dark:bg-black/40 md:mt-14">
 					<h1 className="text-[20px] leading-none">No item selected yet 😏</h1>
 					<Link
@@ -26,8 +26,8 @@ export default async function Delivery() {
 			) : (
 				<div>
 					{/* Header */}
-					<div className="flex justify-between items-center w-full h-10 py-8 px-3 bg-slate-100 dark:bg-black/40">
-						<Link href="/menu" className="flex items-center cursor-pointer">
+					<div className="flex justify-between items-center w-full h-10 py-8 px-3">
+						<Link href="/" className="flex items-center cursor-pointer">
 							<FaChevronLeft className="size-6" />
 							<span className="pl-2 font-semibold">Back</span>
 						</Link>
@@ -39,40 +39,44 @@ export default async function Delivery() {
 					</div>
 
 					{/* Basket */}
-					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 md:h-[36vh] overflow-y-scroll no-scrollbar">
-						{basketItems.map((item) => (
-							<div key={item.id} className="mb-8">
-								<div className="flex items-start justify-between">
-									<Image
-										width={200}
-										height={200}
-										src={item.itemImg}
-										alt={item.itemName}
-										className="w-[7rem] sm:w-[10rem]"
-									/>
-									<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[30rem]">
-										<div className="flex justify-between gap-x-6">
-											<div>
-												<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-300">
-													{item.itemName}
-												</h2>
-												<p className="hidden text-sm text-gray-500 dark:text-gray-300 font-medium">
-													{item.itemDescription}
+					<div className="w-full px-3 py-10  md:h-[36vh] overflow-y-scroll no-scrollbar">
+						{basketItems &&
+							basketItems.map((item) => (
+								<div key={item.id} className="mb-8">
+									<div className="flex items-start justify-between">
+										<Image
+											width={200}
+											height={200}
+											src={item.itemImg}
+											alt={item.itemName}
+											className="w-[7rem] sm:w-[10rem]"
+										/>
+										<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[30rem]">
+											<div className="flex justify-between gap-x-6">
+												<div>
+													<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-300">
+														{item.itemName}
+													</h2>
+													<p className="hidden text-sm text-gray-500 dark:text-gray-300 font-medium">
+														{item.itemDescription}
+													</p>
+												</div>
+												<DeleteItem itemId={item.id} />
+											</div>
+
+											<div className="flex justify-between gap-x-10">
+												<Counter
+													index={item.id}
+													initialCount={item.itemCount}
+												/>
+												<p className="font-semibold text-gray-700 dark:text-gray-300">
+													{item.itemPrice}.99 zł
 												</p>
 											</div>
-											<DeleteItem itemId={item.id} />
-										</div>
-
-										<div className="flex justify-between gap-x-10">
-											<Counter index={item.id} initialCount={item.itemCount} />
-											<p className="font-semibold text-gray-700 dark:text-gray-300">
-												{item.itemPrice}.99 zł
-											</p>
 										</div>
 									</div>
 								</div>
-							</div>
-						))}
+							))}
 
 						<span className="text-2xl pr-2 font-bold text-gray-700 dark:text-gray-300">
 							Total: {totalPrice()} zł
@@ -80,7 +84,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Contact information */}
-					<div className="bg-slate-100 dark:bg-black/40 px-3 py-5">
+					<div className="px-3 py-5">
 						<h2 className="mb-2 font-bold text-gray-600 dark:text-gray-300 tracking-wider text-lg">
 							Contact information
 						</h2>
