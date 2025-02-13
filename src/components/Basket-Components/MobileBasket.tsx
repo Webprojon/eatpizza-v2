@@ -6,7 +6,7 @@ export default async function MobileBasket() {
 	const basketItems = await prisma.basket.findMany();
 
 	return (
-		<div className="md:hidden">
+		<div className="block md:hidden">
 			{basketItems.length === 0 ? (
 				""
 			) : (
@@ -16,7 +16,7 @@ export default async function MobileBasket() {
 				>
 					<span className="flex items-center font-semibold tracking-wider text-white text-[18px]">
 						<FaCartShopping className="mr-3 size-5" />
-						{basketItems && basketItems[0].itemPrice} zł
+						{basketItems[0].itemPrice} zł
 					</span>
 				</Link>
 			)}

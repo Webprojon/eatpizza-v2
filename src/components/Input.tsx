@@ -13,6 +13,7 @@ export default function Input({
 }: InputProps) {
 	return (
 		<input
+			required
 			type={type}
 			name={name}
 			placeholder={text}

@@ -33,50 +33,46 @@ export default async function Delivery() {
 						</Link>
 
 						<span className="font-bold tracking-wide">
-							Your Cart ({basketItems.length})
+							Cart ({basketItems.length})
 						</span>
 						<ClearItems />
 					</div>
 
 					{/* Basket */}
 					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 md:h-[36vh] overflow-y-scroll no-scrollbar">
-						{basketItems &&
-							basketItems.map((item) => (
-								<div key={item.id} className="mb-8">
-									<div className="flex items-start justify-between">
-										<Image
-											width={200}
-											height={200}
-											src={item.itemImg}
-											alt={item.itemName}
-											className="w-[8rem] sm:w-[10rem]"
-										/>
-										<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[30rem]">
-											<div className="flex justify-between gap-x-6">
-												<div>
-													<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-300">
-														{item.itemName}
-													</h2>
-													<p className="hidden text-sm text-gray-500 dark:text-gray-300 font-medium">
-														{item.itemDescription}
-													</p>
-												</div>
-												<DeleteItem itemId={item.id} />
-											</div>
-
-											<div className="flex justify-between gap-x-10">
-												<Counter
-													index={item.id}
-													initialCount={item.itemCount}
-												/>
-												<p className="font-semibold text-gray-700 dark:text-gray-300">
-													{item.itemPrice}.99 zł
+						{basketItems.map((item) => (
+							<div key={item.id} className="mb-8">
+								<div className="flex items-start justify-between">
+									<Image
+										width={200}
+										height={200}
+										src={item.itemImg}
+										alt={item.itemName}
+										className="w-[7rem] sm:w-[10rem]"
+									/>
+									<div className="flex flex-col md:items-center md:justify-between md:flex-row-reverse gap-y-4 w-[15rem] md:w-[30rem]">
+										<div className="flex justify-between gap-x-6">
+											<div>
+												<h2 className="font-semibold text-lg text-gray-700 dark:text-gray-300">
+													{item.itemName}
+												</h2>
+												<p className="hidden text-sm text-gray-500 dark:text-gray-300 font-medium">
+													{item.itemDescription}
 												</p>
 											</div>
+											<DeleteItem itemId={item.id} />
+										</div>
+
+										<div className="flex justify-between gap-x-10">
+											<Counter index={item.id} initialCount={item.itemCount} />
+											<p className="font-semibold text-gray-700 dark:text-gray-300">
+												{item.itemPrice}.99 zł
+											</p>
 										</div>
 									</div>
 								</div>
-							))}
+							</div>
+						))}
 
 						<span className="text-2xl pr-2 font-bold text-gray-700 dark:text-gray-300">
 							Total: {totalPrice()} zł
@@ -84,7 +80,7 @@ export default async function Delivery() {
 					</div>
 
 					{/* Contact information */}
-					<div className="bg-slate-100 dark:bg-black/40 px-3 py-7">
+					<div className="bg-slate-100 dark:bg-black/40 px-3 py-5">
 						<h2 className="mb-2 font-bold text-gray-600 dark:text-gray-300 tracking-wider text-lg">
 							Contact information
 						</h2>
@@ -117,7 +113,7 @@ export default async function Delivery() {
 								className="self-end bg-gradient-green font-semibold tracking-wider text-white px-3 py-2 rounded-md transition-all
 							mt-[1.5rem]"
 							>
-								Checkout Now
+								Submit Orders
 							</button>
 						</form>
 					</div>

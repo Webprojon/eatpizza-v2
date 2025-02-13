@@ -26,7 +26,7 @@ export default async function Product({
 				<CgClose className="size-7" />
 			</Link>
 
-			<div className="flex flex-col gap-y-4 px-3 md:px-0 md:ml-8 pt-5 md:w-[45%]">
+			<div className="flex flex-col gap-y-4 px-3 md:px-0 md:ml-8 pt-12 sm:pt-5 w-full md:w-[45%]">
 				{product?.itemImg && (
 					<Image
 						width={200}
