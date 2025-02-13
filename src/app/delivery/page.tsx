@@ -41,8 +41,8 @@ export default async function Delivery() {
 					{/* Basket */}
 					<div className="w-full px-3 py-10 bg-slate-100 dark:bg-black/40 md:h-[36vh] overflow-y-scroll no-scrollbar">
 						{basketItems &&
-							basketItems.map((item, index: number) => (
-								<div key={index} className="mb-8">
+							basketItems.map((item) => (
+								<div key={item.id} className="mb-8">
 									<div className="flex items-start justify-between">
 										<Image
 											width={200}
@@ -65,7 +65,10 @@ export default async function Delivery() {
 											</div>
 
 											<div className="flex justify-between gap-x-10">
-												<Counter index={index} />
+												<Counter
+													index={item.id}
+													initialCount={item.itemCount}
+												/>
 												<p className="font-semibold text-gray-700 dark:text-gray-300">
 													{item.itemPrice}.99 zł
 												</p>

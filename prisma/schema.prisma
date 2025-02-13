@@ -25,6 +25,7 @@ model Basket {
   itemImg         String
   itemName        String
   itemDescription String?
+  itemCount       Int
   itemPrice       Int
   productId       String
   product         Products @relation(fields: [productId], references: [id])

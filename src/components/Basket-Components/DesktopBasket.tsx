@@ -44,8 +44,8 @@ export default async function DesktopBasket() {
 			) : (
 				<>
 					<div className="h-[25vh] overflow-y-scroll no-scrollbar border-b border-gray-300 dark:border-gray-700 px-3">
-						{basketItems.map((item, index) => (
-							<div key={index} className="mb-4">
+						{basketItems.map((item) => (
+							<div key={item.id} className="mb-4">
 								<div className="mb-3 last:mb-1 relative flex justify-between">
 									<Image
 										width={200}
@@ -74,7 +74,7 @@ export default async function DesktopBasket() {
 									<DeleteItem itemId={item.id} />
 								</div>
 								<div className="flex items-end justify-between w-full">
-									<Counter index={index} />
+									<Counter index={item.id} initialCount={item.itemCount} />
 									<span className="font-semibold text-xs tracking-wider text-gray-700 dark:text-gray-300">
 										{item.itemPrice} zł
 									</span>

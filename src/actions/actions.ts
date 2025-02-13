@@ -17,17 +17,68 @@ export async function addItem(productId: string, productPrice: number) {
 
 		const newItem = await prisma.basket.create({
 			data: {
+				itemCount: 1,
 				productId: product.id,
 				itemImg: product.itemImg,
 				itemName: product.itemName,
-				itemPrice: productPrice || product.itemPrice,
 				itemCategory: product.itemCategory,
 				itemDescription: product.itemDescription,
+				itemPrice: productPrice || product.itemPrice,
 			},
 		});
 
 		if (!newItem) {
 			throw new Error("Failed to create new item in the basket.");
+		}
+
+		revalidatePath("/");
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+
+export async function incrementItem(index: string) {
+	try {
+		const counter = await prisma.basket.update({
+			where: {
+				id: index,
+			},
+			data: {
+				itemCount: {
+					increment: 1,
+				},
+			},
+		});
+
+		if (!counter) {
+			throw new Error("not counted");
+		}
+
+		revalidatePath("/");
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+
+export async function decrementItem(index: string) {
+	try {
+		const counter = await prisma.basket.update({
+			where: {
+				id: index,
+			},
+			data: {
+				itemCount: {
+					decrement: 1,
+				},
+			},
+		});
+
+		if (!counter) {
+			throw new Error("not counted");
 		}
 
 		revalidatePath("/");
