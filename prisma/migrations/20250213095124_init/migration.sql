@@ -19,6 +19,7 @@ CREATE TABLE "Basket" (
     "itemImg" TEXT NOT NULL,
     "itemName" TEXT NOT NULL,
     "itemDescription" TEXT,
+    "itemCount" INTEGER NOT NULL,
     "itemPrice" INTEGER NOT NULL,
     "productId" TEXT NOT NULL,
     "updateAt" TIMESTAMP(3) NOT NULL,
