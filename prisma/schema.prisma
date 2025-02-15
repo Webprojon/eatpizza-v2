@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Products {
+  id              String   @id @default(cuid())
+  itemCategory    String
+  itemImg         String
+  itemName        String
+  itemDescription String?
+  itemPrice       Int
+  updateAt        DateTime @updatedAt
+  createAt        DateTime @default(now())
+  baskets         Basket[]
+}
+
+model Basket {
+  id              String   @id @default(cuid())
+  itemCategory    String
+  itemImg         String
+  itemName        String
+  itemDescription String?
+  itemCount       Int
+  itemPrice       Int
+  productId       String
+  product         Products @relation(fields: [productId], references: [id])
+  updateAt        DateTime @updatedAt
+  createAt        DateTime @default(now())
+}
+
+model OrderedItems {
+  id              String   @id @default(cuid())
+  orderId         String
+  orderName       String
+  orderCategory   String
+  orderImg        String
+  orderCount      Int
+  orderPrice      Int
+  ordertotalPrice Int
+  username        String
+  phoneNumber     String
+  street          String
+  flat            String
+  floor           String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Feedback {
+  id           String   @id @default(cuid())
+  userName     String
+  userFeedback String
+  createAt     DateTime @default(now())
+}
